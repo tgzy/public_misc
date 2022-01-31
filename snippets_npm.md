@@ -22,8 +22,8 @@ const autoprefixer = require("autoprefixer");
 const tailwindcss = require("tailwindcss");
 
 module.exports = {
-	purge: ['./public/*.html'],
-	darkMode: false, // or 'media' or 'class'
+	content: ['./public/**/*.html'],
+	darkMode: 'media', // 'purge' or 'media' or 'class'
 	theme: {
 	  extend: {},
 	},
