@@ -21,7 +21,7 @@ git submodule add someGitArchive public
 ## Use
 ```bash
 D:
-cd D:\Programme\Hugo\Sites\example.com
+cd "D:\Programme\Hugo\Sites\example.com"
 hugo new --kind default posts/hugo_post.md
 hugo -t PaperMod
 ```
