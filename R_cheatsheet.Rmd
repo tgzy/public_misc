@@ -8,8 +8,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 # R Cheatsheet
 
+## Load libraries
+```R
+if (!require(testthat)) install.packages('testthat')
+library(testthat)
+```
+
 ## Self learning
+```R
 library("swirl")
+```
 
 ## Vectors
 
