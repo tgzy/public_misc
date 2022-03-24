@@ -11,7 +11,7 @@ output:
 ## String to Date
 ```vbscript
 Function f_StringToDate(yourString as String) as Date 
-    return DateSerial(Left(yourString, 4), Mid(yourString, 5, 2), Mid(yourString, 7, 2))
+    f_StringToDate = DateSerial(Left(yourString, 4), Mid(yourString, 5, 2), Mid(yourString, 7, 2))
 End Function
 
 Sub Main()
@@ -23,7 +23,7 @@ End Sub
 ## Date to String
 ```vbscript
 Function f_DateToString(yourDate as Date) as String 
-    return Format(yourDate, "yyyyMMdd" & "hhmmss")
+    f_DateToString = Format(yourDate, "yyyyMMdd" & "hhmmss")
 End Function
 
 Sub Main()
