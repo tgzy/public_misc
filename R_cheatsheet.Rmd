@@ -21,8 +21,25 @@ library("swirl")
 
 ## Vectors
 
-```{r cars}
+```{r vectors}
 rep(c(0, 1, 2), each = 10)
 
 rep(c(0, 1, 2), times = 10)
+```
+
+## Memory management
+
+```{r memory}
+# Sample dataset of 1000 rows
+some_df <- data.frame(rep(1:100, 10),
+                             rep(101:200, 10),
+                             rep(201:300, 10))
+
+object.size(some_df) # Reports the memory size allocated to the object
+
+rm("some_df") # Removes only the object itself and not necessarily the memory allotted to it
+gc() # Force R to release memory it is no longer using
+ls() # Lists all the objects in your current workspace
+
+rm(list = ls()) # If you want to delete all the objects in the workspace and start with a clean slate
 ```
