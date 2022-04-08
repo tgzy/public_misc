@@ -36,6 +36,7 @@ git fetch
 ```
 
 ```bash
+git checkout -b main origin/main
 git push --set-upstream origin main
 git push origin main
 ```
