@@ -46,7 +46,7 @@ rm(list = ls()) # If you want to delete all the objects in the workspace and sta
 
 ## Apply functions
 
-```{txt}
+```
 # https://purrr.tidyverse.org/reference/map.html
 library(dplyr)
 myList <- mtcars[1:20,] %>%
