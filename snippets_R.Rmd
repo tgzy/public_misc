@@ -43,3 +43,14 @@ ls() # Lists all the objects in your current workspace
 
 rm(list = ls()) # If you want to delete all the objects in the workspace and start with a clean slate
 ```
+
+## Apply functions
+
+```{txt}
+# https://purrr.tidyverse.org/reference/map.html
+library(dplyr)
+myList <- mtcars[1:20,] %>%
+  split(.$cyl) %>%
+  map(~ lm(mpg ~ wt, data = .x)) %>%
+  map_dfr(~ as.data.frame(t(as.matrix(coef(.)))))
+```
