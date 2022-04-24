@@ -24,6 +24,7 @@ git config --global init.defaultBranch main
 Generic:
 ```bash
 git init
+git remote set-head origin <branch>
 ```
 
 ## Remote hinzufügen
