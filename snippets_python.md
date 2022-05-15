@@ -79,9 +79,9 @@ for nr, pokemon in enumerate(pokemons):
 ```python
 # Instead of
 v = (1, 0, -1)
-x = [0]
-y = [1]
-z = [2]
+x = v[0]
+y = v[1]
+z = v[2]
 
 print(f"x={x}, y={y}, z={z}")
 
@@ -90,4 +90,29 @@ v = (1, 0, -1)
 x, y, z = v
 
 print(f"x={x}, y={y}, z={z}")
+```
+
+## Context-Manager
+```python
+# Instead of
+f = open("file.txt", "w")
+f.write("Hallo Welt")
+f.close() #Schliessen ist hier unbedingt notwendig
+
+# use
+with open("file.txt", "w") as f:
+	f.write("Hallo Welt")
+```
+
+```python
+# Instead of
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+try:
+	s.connect((host, port))
+finally:
+	s.close()
+
+# use
+socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+	s.connect((host, port))
 ```
