@@ -8,13 +8,29 @@ output:
 ---
 # Python
 
-## Tipps
+## Vergleiche
 
+```python
+# Instead of
+if A == True:
+	print("Die Aussage A ist wahr.")
+
+if B == False:
+	print("Die Aussage A ist falsch.")
+
+# use
+if A:
+	print("Die Aussage A ist wahr.")
+
+if not B:
+	print("Die Aussage B ist falsch.")
+```
+
+## Lists
 ```python
 pokemons = {1: "Bisasam", 2: "Bisaknosp", 3: "Bisaflor"}
 ```
 
-## Lists
 ```python
 # Instead of
 if len(pokemons) != 0:
