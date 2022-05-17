@@ -41,3 +41,17 @@ git checkout -b main origin/main
 git push --set-upstream origin main
 git push origin main
 ```
+
+## Aliases
+```bash
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+```
+
+```bash
+$ git config --global alias.upush push --set-upstream [origin] $(git branch --show-current)
+$ git config --global alias.gco checkout [branch]
+$ git config --global alias.gcb checkout -b [branch]
+```
