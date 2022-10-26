@@ -43,6 +43,8 @@ git push origin main
 ```
 
 ## Aliases
+
+### General
 ```bash
 $ git config --global alias.co checkout
 $ git config --global alias.br branch
@@ -54,4 +56,9 @@ $ git config --global alias.st status
 $ git config --global alias.upush push --set-upstream [origin] $(git branch --show-current)
 $ git config --global alias.gco checkout [branch]
 $ git config --global alias.gcb checkout -b [branch]
+```
+
+### git gud meme
+```bash
+git config --global --add alias.gud "reset --hard"
 ```
