@@ -54,3 +54,22 @@ myList <- mtcars[1:20,] %>%
   map(~ lm(mpg ~ wt, data = .x)) %>%
   map_dfr(~ as.data.frame(t(as.matrix(coef(.)))))
 ```
+
+## testthat
+
+### Prepare package
+
+```
+install.packages("testthat")
+usethis::use_test("mypackage")
+usethis::use_description(fields = list(), check_name = TRUE, roxygen = TRUE)
+```
+
+### Run tests
+
+```
+library(testthat)
+test_that("multiplication works", {
+  expect_equal(2 * 2, 4)
+})
+```
