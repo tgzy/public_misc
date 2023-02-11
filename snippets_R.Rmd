@@ -91,3 +91,34 @@ covr <- file_coverage("R/fahrenheit_to_celsius.R", "tests/testthat/test-myPackag
 covr
 report(covr)
 ```
+
+### Automate project setup
+
+```
+library(usethis)
+
+# Create a new package -------------------------------------------------
+path <- file.path(tempdir(), "mypkg")
+create_package(path)
+
+proj_activate(path)
+
+# Modify the description ----------------------------------------------
+use_mit_license("My Name")
+
+use_package("ggplot2", "Suggests")
+
+# Set up other files -------------------------------------------------
+use_readme_md()
+
+use_news_md()
+
+use_test("my-test")
+
+x <- 1
+y <- 2
+use_data(x, y)
+
+# Use git ------------------------------------------------------------
+use_git()
+```
