@@ -1,0 +1,64 @@
+---
+title: "Untitled"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# R - Start a new project
+
+## Mandatory setup
+
+```
+library(usethis)
+#usethis::create_package(".")
+usethis::use_description(
+  fields = list(Package = "myPackageName"),
+  check_name = TRUE,
+  roxygen = TRUE
+)
+
+usethis::use_package("magrittr", min_version = "2.0.3")
+usethis::use_package("testthat", min_version = "3.1.6")
+usethis::use_package("covr", min_version = "3.6.1", "Suggests")
+```
+
+## Further information
+
+```
+usethis::use_mit_license("My Name")
+usethis::use_readme_md()
+usethis::use_news_md()
+```
+
+## Use tests
+
+```
+usethis::use_test("my-test")
+```
+
+## Use test coverage
+
+```
+library(covr)
+devtools::load_all(".")
+covr <- file_coverage("R/fahrenheit_to_celsius.R", "tests/testthat/test-fahrenheit_to_celsius.R")
+covr
+report(covr)
+```
+
+# Add documentation
+
+```
+usethis::use_vignette("fahrenheit_to_celsius")
+```
+
+## Misc
+
+```
+usethis::use_git()
+usethis::use_github_action("check-release")
+use_github_action("test-coverage")
+
+```
