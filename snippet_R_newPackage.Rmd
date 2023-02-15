@@ -54,11 +54,11 @@ report(covr)
 usethis::use_vignette("fahrenheit_to_celsius")
 ```
 
-## Misc
+## GithubActions
+https://github.com/r-lib/actions/tree/v2/examples
 
 ```
 usethis::use_git()
 usethis::use_github_action("check-release")
-use_github_action("test-coverage")
-
+usethis::use_github_action("test-coverage")
 ```
