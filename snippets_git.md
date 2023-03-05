@@ -42,6 +42,14 @@ git push --set-upstream origin main
 git push origin main
 ```
 
+### Forking and Merge Request
+
+```bash
+git remote add upstream https://github.com/tgzy/public_misc.git
+git fetch upstream
+git rebase upstream/main
+```
+
 ## Aliases
 
 ### General
