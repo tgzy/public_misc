@@ -123,20 +123,37 @@ use_data(x, y)
 use_git()
 
 # Call function multiple times ------------------------------------------------------------
+
+## Single parameter
 lapply(format_vec, function(f)
   write_dataset(
     dataset = mtcars,
     path = output_folder,
-    format = f
+    format = f,
+    partitioning = "cyl"
   ))
 
 write_dataset_preset <- function(f) {
   write_dataset(
     dataset = mtcars,
     path = output_folder,
-    format = f
+    format = f,
+    partitioning = "cyl"
   )
 }
 lapply(format_vec, write_dataset_preset)
 purrr::walk(format_vec, write_dataset_preset)
+
+## Multiple parameter
+write_dataset_preset_multiple <- function(data, formating) {
+  write_dataset(
+    dataset = data,
+    path = output_folder,
+    format = formating,
+    partitioning = "cyl"
+  )
+}
+
+lapply(X=format_vec, FUN=write_dataset_preset_multiple, data=mtcars)
+purrr::walk(.x=format_vec, .f=write_dataset_preset_multiple, data=mtcars)
 ```
