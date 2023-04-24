@@ -145,12 +145,12 @@ lapply(format_vec, write_dataset_preset)
 purrr::walk(format_vec, write_dataset_preset)
 
 ## Multiple parameter
-write_dataset_preset_multiple <- function(data, formating) {
+write_dataset_preset_multiple <- function(data, formating, partition_by=dplyr::group_vars(data)) {
   write_dataset(
     dataset = data,
     path = output_folder,
     format = formating,
-    partitioning = "cyl"
+    partitioning = partition_by
   )
 }
 
