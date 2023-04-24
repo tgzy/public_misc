@@ -121,4 +121,22 @@ use_data(x, y)
 
 # Use git ------------------------------------------------------------
 use_git()
+
+# Call function multiple times ------------------------------------------------------------
+lapply(format_vec, function(f)
+  write_dataset(
+    dataset = mtcars,
+    path = output_folder,
+    format = f
+  ))
+
+write_dataset_preset <- function(f) {
+  write_dataset(
+    dataset = mtcars,
+    path = output_folder,
+    format = f
+  )
+}
+lapply(format_vec, write_dataset_preset)
+purrr::walk(format_vec, write_dataset_preset)
 ```
