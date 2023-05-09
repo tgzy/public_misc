@@ -85,6 +85,26 @@ my_summary <- function(df, grouping_var){
 }
 
 my_summary(airline_df, origin)
+```
+
+```
+my_summary <- function(df, grouping_var, summary_var){
+  grouping_var <- enquo(grouping_var)
+  summary_var <- enquo(summary_var)
+  summary_nm <- quo_name(summary_var)
+  summary_nm_avg <- paste0("avg_",summary_nm)
+  summary_nm_sum <- paste0("sum_",summary_nm)
+  summary_nm_obs <- paste0("obs_",summary_nm)
+
+  df %>%
+    group_by(!!grouping_var) %>% 
+    summarise(
+      !!summary_nm_avg := mean(!!summary_var),#using "vestigial operator" := instead of =
+      !!summary_nm_sum := sum(!!summary_var),
+      !!summary_nm_obs := n()
+    )
+}
+my_summary(airline_df, origin, air_time)
 
 #https://www.r-bloggers.com/2019/07/bang-bang-how-to-program-with-dplyr/
 ```
