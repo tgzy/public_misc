@@ -55,6 +55,19 @@ myList <- mtcars[1:20,] %>%
   map_dfr(~ as.data.frame(t(as.matrix(coef(.)))))
 ```
 
+## Standard Evaluation (SE) vs. Non Standard Evaluation (NSE)
+
+```
+df[x<10] #Standard Evaluation (SE)
+df[get('x')<10] #Non Standard Evaluation (NSE)
+```
+
+```
+df %>% dplyr::filter(x < 10) #Standard Evaluation (SE)
+df %>% dplyr::filter(!!rlang::sym("x")<10) #Non Standard Evaluation (NSE)
+#https://www.r-bloggers.com/2020/03/variable-name-in-functions-its-easy-with-datatable/
+```
+
 ## testthat
 
 ### Prepare package
