@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Snippets R: Generic Cheatsheet"
 output: pdf_document
 ---
 
@@ -65,7 +65,28 @@ df[get('x')<10] #Non Standard Evaluation (NSE)
 ```
 df %>% dplyr::filter(x < 10) #Standard Evaluation (SE)
 df %>% dplyr::filter(!!rlang::sym("x")<10) #Non Standard Evaluation (NSE)
+
 #https://www.r-bloggers.com/2020/03/variable-name-in-functions-its-easy-with-datatable/
+```
+
+```
+my_summary <- function(df, grouping_var){
+  grouping_var <- enquo(grouping_var)
+  
+  df %>%
+    group_by(!!grouping_var) %>% 
+    summarise(
+      avg = mean(air_time),
+      sum = sum(air_time),
+      min = min(air_time),
+      max = max(air_time),
+      obs = n()
+    )
+}
+
+my_summary(airline_df, origin)
+
+#https://www.r-bloggers.com/2019/07/bang-bang-how-to-program-with-dplyr/
 ```
 
 ## testthat

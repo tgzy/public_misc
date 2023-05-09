@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Snippets R: Setting up a package"
 output: pdf_document
 ---
 
