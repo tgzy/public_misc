@@ -134,10 +134,13 @@ use_data(x, y)
 
 # Use git ------------------------------------------------------------
 use_git()
+```
 
-# Call function multiple times ------------------------------------------------------------
+# Call function multiple times
 
 ## Single parameter
+
+```
 lapply(format_vec, function(f)
   write_dataset(
     dataset = mtcars,
@@ -156,8 +159,11 @@ write_dataset_preset <- function(f) {
 }
 lapply(format_vec, write_dataset_preset)
 purrr::walk(format_vec, write_dataset_preset)
+```
 
 ## Multiple parameter
+
+```
 write_dataset_preset_multiple <- function(data, formating, partition_by=dplyr::group_vars(data)) {
   write_dataset(
     dataset = data,
