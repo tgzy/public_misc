@@ -1,0 +1,110 @@
+---
+title: "Snippets R: Setting up a package"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# R - Start a new project
+
+## Setup via `usethis`
+
+```
+install.packages("testthat")
+
+library(usethis)
+#usethis::create_package(".")
+usethis::create_package("myPackageName")
+usethis::use_description(
+  fields = list(Package = "myPackageName"),
+  check_name = TRUE,
+  roxygen = TRUE
+)
+
+use_pipe(export = TRUE) #Exports the pipe operator
+
+usethis::use_package("magrittr", min_version = "2.0.3")
+usethis::use_package("testthat", min_version = "3.1.6")
+usethis::use_package("covr", min_version = "3.6.1", "Suggests")
+```
+
+### Setup manually
+
+```
+path <- file.path(tempdir(), "mypkg")
+create_package(path)
+proj_activate(path)
+```
+
+## Further information
+
+```
+usethis::use_mit_license("My Name")
+usethis::use_readme_md()
+usethis::use_news_md()
+```
+
+## Use tests
+
+### Example script `fahrenheit_to_celsius.R`
+```
+#' Converts temperature in Fahrenheit to Celsius
+#' @param temp_F Temperature in Fahrenheit
+#' @return An integer
+#' @importFrom magrittr %>%
+#' @export
+#' @examples
+#' fahrenheit_to_celsius(32)
+fahrenheit_to_celsius <- function(temp_F) {
+  temp_C <- (temp_F - 32) * 5 / 9
+  return(temp_C)
+}
+```
+
+### Generating test file
+
+```
+usethis::use_test("fahrenheit_to_celsius.R") # creates tests/testthat/test-fahrenheit_to_celsius.R
+```
+
+### Editing the test file with `test_that()`
+
+```
+test_that("conversion works", {
+  expect_equal(fahrenheit_to_celsius(32), 0)
+})
+
+test_that("a thing exists", {
+  athing <- "a thing"
+  expect_true(exists(athing))
+})
+```
+
+### Show test coverage
+
+```
+library(covr)
+devtools::load_all(".")
+covr <- file_coverage("R/fahrenheit_to_celsius.R", "tests/testthat/test-fahrenheit_to_celsius.R")
+covr
+report(covr)
+```
+
+# Add documentation
+
+```
+document() #Rebuilds docs and NAMESPACE
+usethis::use_vignette("fahrenheit_to_celsius")
+use_readme_md()
+use_news_md()
+```
+
+## GithubActions
+https://github.com/r-lib/actions/tree/v2/examples
+
+```
+use_git()
+usethis::use_github_action("check-release")
+usethis::use_github_action("test-coverage")
+```

@@ -24,6 +24,7 @@ git config --global init.defaultBranch main
 Generic:
 ```bash
 git init
+git remote set-head origin <branch>
 ```
 
 ## Remote hinzufügen
@@ -39,4 +40,33 @@ git fetch
 git checkout -b main origin/main
 git push --set-upstream origin main
 git push origin main
+```
+
+### Forking and Merge Request
+
+```bash
+git remote add upstream https://github.com/tgzy/public_misc.git
+git fetch upstream
+git rebase upstream/main
+```
+
+## Aliases
+
+### General
+```bash
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+```
+
+```bash
+$ git config --global alias.upush push --set-upstream [origin] $(git branch --show-current)
+$ git config --global alias.gco checkout [branch]
+$ git config --global alias.gcb checkout -b [branch]
+```
+
+### git gud meme
+```bash
+git config --global --add alias.gud "reset --hard"
 ```
