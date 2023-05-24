@@ -97,7 +97,7 @@ print(f"x={x}, y={y}, z={z}")
 # Instead of
 f = open("file.txt", "w")
 f.write("Hallo Welt")
-f.close() #Schliessen ist hier unbedingt notwendig
+f.close() #Closing manually is mandatory!
 
 # use
 with open("file.txt", "w") as f:
