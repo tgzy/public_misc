@@ -161,3 +161,24 @@ df_import = pd.read_csv('example.csv',
                         )
 print(df_import)
 ```
+
+## Import dataframe from document
+```python
+import io
+
+string_data="""first_name,last_name,age,country
+John,Smith,10,USA
+Billy,Joe,,USA
+"""
+
+#creates <NA>
+df_import = pd.read_csv(io.StringIO(string_data),
+                 sep=",",
+                 dtype = {
+                     'first_name': str,
+                     'last_name': str,
+                     'age': pd.Int64Dtype(),
+                     'country': str}
+                     )
+print(df_import)
+```
