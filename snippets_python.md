@@ -133,22 +133,31 @@ with open("example.csv") as infile:
     for line in reader:
         print(line)
 ```
+
 ```python
 import pandas as pd
 
+#create NaN
 df_import = pd.read_csv('example.csv')
 print(df_import)
 
+#create NaN
 df_import = pd.read_csv('example.csv')
 df_import.fillna(pd.NA)
 print(df_import)
 
+#create NaN
 df_import = pd.read_csv('example.csv')
 df_import.fillna('')
 print(df_import)
 
+#creates <NA>
 df_import = pd.read_csv('example.csv',
-                        dtype = {'first_name': str, 'last_name': str, 'age': pd.Int64Dtype(), 'country': str}
+                        dtype = {
+                            'first_name': str,
+                            'last_name': str,
+                            'age': pd.Int64Dtype(),
+                            'country': str}
                         )
-#df_import.fillna('')
 print(df_import)
+```
