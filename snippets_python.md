@@ -182,3 +182,15 @@ df_import = pd.read_csv(io.StringIO(string_data),
                      )
 print(df_import)
 ```
+
+## Different ways to print variables
+```python
+print(name + ' ' + family)             # Concatenation
+print(name, family)                    # print() takes multiple arguments
+print(name, family, sep=' ')           # Can specify how to separate args
+print(' '.join([name, familiy]))       # str.join works for lists of strs
+print('%s %s' % (name, family))        # Similar to str.format()
+print('{} {}'.format(name, family))    # str.format() gives you more control over the format of the variables, e.g. '{:03d}' displays an int with 3 digits including leading zeros
+print('{0} {1}'.format(name, family))  # Can specify which args to use where
+print(f'{name} {family}')              # f-strings let you interpolate variables directly
+```
