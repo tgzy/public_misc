@@ -194,3 +194,25 @@ print('{} {}'.format(name, family))    # str.format() gives you more control ove
 print('{0} {1}'.format(name, family))  # Can specify which args to use where
 print(f'{name} {family}')              # f-strings let you interpolate variables directly
 ```
+
+## Import data from CSV or TXT as a list
+```python
+with open("file.txt", "r") as file:
+    list = file.read().splitlines()
+```
+
+## Working with List Comprehension and Dictionary Comprehension
+```python
+import random
+names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
+
+# List Comprehension
+long_names = [name for name in names if len(name) > 5]
+
+# Dictionary Comprehension
+student_score = {student:random.randint(0, 100) for student in names}
+print(student_score)
+
+passed_students = {student:score for (student, score) in student_score.items() if score > 60}
+print(passed_students)
+```
