@@ -73,6 +73,10 @@ for pokemon in pokemons:
 nr = 1
 for nr, pokemon in enumerate(pokemons):
 	print(f"{nr+1}:{pokemon}")
+	
+# optimized
+for nr, pokemon in enumerate(pokemons, start=1):
+    print(f"{nr}:{pokemon}")
 ```
 
 ## Matrices
