@@ -20,6 +20,18 @@ Sub Main()
 End Sub
 ```
 
+## String to Timestamp
+```vbscript
+Function f_StringToDate(yourString as String) as Date 
+    f_StringToDate = DateSerial(Left(yourString, 4), Mid(yourString, 5, 2), Mid(yourString, 7, 2)) + TimeSerial(Mid(yourString, 9, 2), Mid(yourString, 11, 2), Mid(yourString, 13, 2))
+End Function
+
+Sub Main()
+    Console.WriteLine(f_StringToDate("20220322083955"))
+    'Output: 3/22/2022 08:39:55 AM
+End Sub
+```
+
 ## Date to String
 ```vbscript
 Function f_DateToString(yourDate as Date) as String 
